@@ -1,0 +1,3 @@
+takeAway of this project:
+- utilize of pathname to switch easly the sidebar for teachers and clients(_components/sidebar-routes.tsx)
+- advantage of "isSubmitting, isValid" over isloading  while we use "react-hook-form" e.g(create/page.tsx)

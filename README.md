@@ -2,7 +2,7 @@ setUp process
 
 - npx create-next-app@latest
 - npx shadcn-ui@latest init
-- npm install @clerk/nextjs
+- npm install @clerk/nextjs, npm install uploadthing @uploadthing/react react-dropzone
 
 check out for random logos [logoipsum](https://logoipsum.com/)
 
