@@ -1,3 +1,10 @@
 takeAway of this project:
 - utilize of pathname to switch easly the sidebar for teachers and clients(_components/sidebar-routes.tsx)
 - advantage of "isSubmitting, isValid" over isloading  while we use "react-hook-form" e.g(create/page.tsx)
+- add script where we seed our database from here instead of doing manually(eg. script/seed.ts should run "node scripts/seed.ts")
+
+
+
+as the latest version of uploadthing is not fully running I have to use those version
+- npm install uploadthing@^5.5.3  @uploadthing/react@^5.5.0 react-dropzone@^14.2.3
+- with this add the style on global.css
