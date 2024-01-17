@@ -68,7 +68,7 @@ export const ChaptersForm = ({
   const onReorder = async (updateData: { id: string; position: number }[]) => {
     try {
       setIsUpdating(true);
-      console.log("dskh", updateData)
+      // console.log("dskh", updateData)
       await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
         list: updateData
       });
