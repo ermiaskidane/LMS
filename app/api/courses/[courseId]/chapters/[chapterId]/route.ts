@@ -9,13 +9,96 @@ const { Video } = new Mux(
   process.env.MUX_TOKEN_SECRET!,
 );
 
+export async function DELETE(
+  req: Request,
+  { params }: { params: { courseId: string; chapterId: string } }
+) {
+  try {
+    const { userId } = auth();
+
+    if (!userId) {
+      return new NextResponse("Unauthorized", { status: 401 });
+    }
+
+    const ownCourse = await db.course.findUnique({
+      where: {
+        id: params.courseId,
+        userId,
+      }
+    });
+
+    if (!ownCourse) {
+      return new NextResponse("Unauthorized", { status: 401 });
+    }
+
+    const chapter = await db.chapter.findUnique({
+      where: {
+        id: params.chapterId,
+        courseId: params.courseId,
+      }
+    });
+
+    if (!chapter) {
+      return new NextResponse("Not Found", { status: 404 });
+    }
+
+    if (chapter.videoUrl) {
+      const existingMuxData = await db.muxData.findFirst({
+        where: {
+          chapterId: params.chapterId,
+        }
+      });
+
+      if (existingMuxData) {
+        await Video.Assets.del(existingMuxData.assetId);
+        await db.muxData.delete({
+          where: {
+            id: existingMuxData.id,
+          }
+        });
+      }
+    }
+
+    const deletedChapter = await db.chapter.delete({
+      where: {
+        id: params.chapterId
+      }
+    });
+
+    // to delete the published chapters
+    const publishedChaptersInCourse = await db.chapter.findMany({
+      where: {
+        courseId: params.courseId,
+        isPublished: true,
+      }
+    });
+
+    // when we dont have a publishedChapters then unpublish the whole course
+    if (!publishedChaptersInCourse.length) {
+      await db.course.update({
+        where: {
+          id: params.courseId,
+        },
+        data: {
+          isPublished: false,
+        }
+      });
+    }
+
+    return NextResponse.json(deletedChapter);
+  } catch (error) {
+    console.log("[CHAPTER_ID_DELETE]", error);
+    return new NextResponse("Internal Error", { status: 500 });
+  }
+}
+
 export async function PATCH(
   req: Request,
   { params }: { params: { courseId: string; chapterId: string } }
 ) {
   try {
     const { userId } = auth();
-    // Not to pass accidentaly as published we have to seperate
+    // Not to pass accidentaly published we have to seperate
     // isPublished property from the values 
     const { isPublished, ...values } = await req.json();
 

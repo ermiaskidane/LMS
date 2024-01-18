@@ -14,7 +14,7 @@ export const Editor = ({
   onChange,
   value,
 }: EditorProps) => {
-  // as client side render(CSR) runs first in ssr we have to close it with this fun
+  // as Server side render(SSR) runs first in client side render we have to close it with this fun
   // in order to run the react quill only in CSR
   const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), { ssr: false }), []);
 
