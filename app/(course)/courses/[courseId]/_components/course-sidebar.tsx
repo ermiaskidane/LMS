@@ -3,7 +3,7 @@ import { Chapter, Course, UserProgress } from "@prisma/client"
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
-// import { CourseProgress } from "@/components/course-progress";
+import { CourseProgress } from "@/components/course-progress";
 
 import { CourseSidebarItem } from "./course-sidebar-item";
 
@@ -29,7 +29,7 @@ export const CourseSidebar = async ({
   const purchase = await db.purchase.findUnique({
     where: {
       // we able to use "userId_courseId" cz of in purchase modal we set 
-      // @@unique([userId, courseId]) and its role is to prevent users buy course
+      // @@unique([userId, courseId]) and its use case is to prevent users buy course
       // for second time
       userId_courseId: {
         userId,
@@ -46,10 +46,10 @@ export const CourseSidebar = async ({
         </h1>
         {purchase && (
           <div className="mt-10">
-            {/* <CourseProgress
+            <CourseProgress
               variant="success"
               value={progressCount}
-            /> */}
+            />
           </div>
         )}
       </div>
