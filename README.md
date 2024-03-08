@@ -13,7 +13,7 @@ I choose to install to the specific project which is `pscale.exe`, alternatively
 
 - [download windows_amd64.zip](https://github.com/planetscale/cli/releases/tag/v0.186.0) make sure it's compitable with your system
 - after download copy the [pscale] file then paste at the root directory of your project
-- run the command `pscale database dump lms main ` to get all your databse
+- run the command `pscale database dump lms main ` to get all your databse, `lms` is the databse name
 - concatenate all the separate file with `type *-schema.sql > all_schema.sql `
 - similarly concatenate the number schemas `type *.00001.sql > all_number.sql`
 
