@@ -9,7 +9,7 @@ check out for random logos [logoipsum](https://logoipsum.com/)
 
 ## Database migration planetScale
 
-I choose to install to the specific project the extension instead of install to the my laptop
+I choose to install to the specific project which is `pscale.exe`, alternatively it can be install to laptop system. Steps I follow to install to the project
 
 - [download windows_amd64.zip](https://github.com/planetscale/cli/releases/tag/v0.186.0) make sure it's compitable with your system
 - after download copy the [pscale] file then paste at the root directory of your project
