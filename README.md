@@ -20,7 +20,7 @@ I choose to install to the specific project which is `pscale.exe`, alternatively
 then run the whatever databse command used. This project uses MySql database so I have to run two commands, `all_schema.sql` and `all_number.sql` folders created
 `mysql -h "<db-host>" -u <USERNAME> --databse <DB_NAME> -p < all _schema.sql` and `mysql -h "<db-host>" -u <USERNAME> --databse <DB_NAME> -p < all_number.sql` respectively.
 
-Note the `db-host`, `<USERNAME>`, and `<DB_NAME>` reperesents the database names you migrating to and replace it with its crosponding names
+Note the `db-host`, `<USERNAME>`, and `<DB_NAME>` reperesents the database names you migrating to and replace it with its corresponding names
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
