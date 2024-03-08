@@ -7,6 +7,21 @@ setUp process
 
 check out for random logos [logoipsum](https://logoipsum.com/)
 
+## Database migration planetScale
+
+I choose to install to the specific project the extension instead of install to the my laptop
+
+- [download windows_amd64.zip](https://github.com/planetscale/cli/releases/tag/v0.186.0) make sure it's compitable with your system
+- after download copy the [pscale] file then paste at the root directory of your project
+- run the command `pscale database dump lms main ` to get all your databse
+- concatenate all the separate file with `type *-schema.sql > all_schema.sql `
+- similarly concatenate the number schemas `type *.00001.sql > all_number.sql`
+
+then run the whatever databse command used. This project uses MySql database so I have to run two commands, `all_schema.sql` and `all_number.sql` folders created
+`mysql -h "<db-host>" -u <USERNAME> --databse <DB_NAME> -p < all _schema.sql` and `mysql -h "<db-host>" -u <USERNAME> --databse <DB_NAME> -p < all_number.sql` respectively.
+
+Note the `db-host`, `<USERNAME>`, and `<DB_NAME>` reperesents the database names you migrating to and replace it with its crosponding names
+
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

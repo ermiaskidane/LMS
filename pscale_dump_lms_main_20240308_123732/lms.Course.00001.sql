@@ -1,0 +1,5 @@
+INSERT INTO `Course`(`id`,`userId`,`title`,`description`,`imageUrl`,`price`,`isPublished`,`categoryId`,`createdAt`,`updatedAt`) VALUES
+("183b804d-a9d7-4d04-8a53-61d39a7b97a0","user_2aluC3KGRTs8MxEpVhamK1ZNx24","auth-course",NULL,"https://utfs.io/f/352e1398-bf41-49ea-88b3-e9f4494a9a5d-palkik.png",NULL,0,NULL,"2024-02-14 09:39:31.293","2024-02-15 16:26:01.526"),
+("3b194824-a3d6-4668-975b-1ebcf205ca23","user_2aluC3KGRTs8MxEpVhamK1ZNx24","python programming ",NULL,NULL,NULL,0,NULL,"2024-01-25 19:12:42.083","2024-01-25 19:12:42.083"),
+("62597354-e0de-4944-b869-6356072fbca3","user_2aluC3KGRTs8MxEpVhamK1ZNx24","python programming ",NULL,NULL,NULL,0,NULL,"2024-01-25 19:12:30.222","2024-01-25 19:12:30.222"),
+("8718f64c-7a5f-4736-a430-079bf5744121","user_2aluC3KGRTs8MxEpVhamK1ZNx24","Advance web development","advance web development course","https://utfs.io/f/f6b518a3-7401-4e65-bc0f-053306ab4491-8swq0f.jpg",20.99,1,"ecc5006c-9983-4132-802b-bc69f9d4bccc","2024-01-20 09:36:52.951","2024-01-20 09:48:32.285");
